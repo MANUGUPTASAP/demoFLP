@@ -1,0 +1,5 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.colacolaCocaCola.controller.App" displayBlock="true" height="100%"
+  xmlns="sap.m">
+  <App id="pageContainer" busyIndicatorDelay="0"/>
+</mvc:View>

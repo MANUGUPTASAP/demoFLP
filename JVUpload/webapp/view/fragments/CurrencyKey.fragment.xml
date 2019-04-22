@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog busyIndicatorDelay="{viewModel>/busyDelay}" busy="{viewModel>/dialogBusy}" noDataText="No Data" title="Select Currency Key"
+		search="onCurrencyKeyDialogSearch" confirm="onCurrencyKeyDialogConfirm" cancel="onCurrencyKeyDialogCancel" items="{ path : 'viewModel>/CurrencyKeySet' }">
+		<ColumnListItem>
+			<cells>
+				<Label text="{viewModel>Waers}"/>
+				<Label text="{viewModel>Ltext}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_TRANSLATION_KEY}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="true">
+				<Text text="{i18n>COL_CURR_DESC}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZFI_JOURNAL_VOUCHER_POST_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="FinsGLDocumentHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Blart" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Document type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bldat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Posting Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Monat" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Period" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Wwert" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Translation dte" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Usnam" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Xblnr" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="Reference" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bktxt" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Doc.Header Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Waers" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Kursf" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Ref.exch.rate" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="KursfExt" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Exchange Rate"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ldgrp" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pargb" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Trdg part.BA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Action" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Action" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Objid" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="WorkCenter" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Work Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Period From Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Period To Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Message text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JvType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="JV Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="FinsGLDocHeaderToAttachmentNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocHeaderToAttachment"
+					FromRole="FromRole_FinsGLDocHeaderToAttachment" ToRole="ToRole_FinsGLDocHeaderToAttachment"/><NavigationProperty Name="FinsDocHeaderToApproverNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocHeaderToApprover"
+					FromRole="FromRole_FinsDocHeaderToApprover" ToRole="ToRole_FinsDocHeaderToApprover"/><NavigationProperty Name="FinsGLDocumentHeaderToItemNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeaderToItem"
+					FromRole="FromRole_FinsGLDocumentHeaderToItem" ToRole="ToRole_FinsGLDocumentHeaderToItem"/></EntityType>
+			<EntityType Name="FinsGLDocumentItem" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Buzei"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Line item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="G/L" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sgtxt" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrsol" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Debit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrhab" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Credit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbtr" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amnt in CompCd Crcy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbe2" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="LC2 amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mwskz" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tax Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Txjcd" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Tax Jur." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pspnr" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Valut" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Value date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="House bank" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hktid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Account ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zounr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Assignment" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vbund" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Trading partner"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CompanyCode" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ort01" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="City" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="JournalDocumentType" sap:content-version="1">
+				<Key><PropertyRef Name="Blart"/></Key><Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityType Name="FinsDocumentApprover" sap:content-version="1">
+				<Key><PropertyRef Name="WorkCenter"/><PropertyRef Name="Objid"/><PropertyRef Name="Uname"/></Key><Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Work Center"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ename" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Empl./appl.name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ProfitCenter" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Long Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datbi" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Valid To" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CostCenter" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mctxt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Short Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datab" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Valid From" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datbi" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Valid To" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FinsAccrualDocumentHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bldat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Posting Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Period" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wwert" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Translation Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Usnam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Xblnr" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Reference" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bktxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Doc.Header Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Kursf" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ref.exch.rate" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="KursfExt" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Exchange Rate"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ldgrp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pargb" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Trdg part.BA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stgrd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Reversal Reason"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stodt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Reversal Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Action" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Work Center"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="FinsAccrualDocHeaderToItemNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocHeaderToItem"
+					FromRole="FromRole_FinsAccrualDocHeaderToItem" ToRole="ToRole_FinsAccrualDocHeaderToItem"/><NavigationProperty Name="FinsAccDocHeaderToApproverNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccDocHeaderToApprover"
+					FromRole="FromRole_FinsAccDocHeaderToApprover" ToRole="ToRole_FinsAccDocHeaderToApprover"/></EntityType>
+			<EntityType Name="FinsAccrualDocumentItem" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Buzei"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Line item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="G/L" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sgtxt" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrsol" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Debit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrhab" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Credit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbtr" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amnt in CompCd Crcy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbe2" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="LC2 amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mwskz" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tax Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Txjcd" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Tax Jur." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pspnr" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Valut" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Value date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="House bank" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hktid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Account ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zounr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Assignment" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vbund" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Trading partner"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FinsDocumentAttachment" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/><PropertyRef Name="DocId"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" MaxLength="46" sap:unicode="false"
+					sap:label="Folder Entry ID (Obj+Fol+Forwarder Name)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MediaResource" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Filename" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="GLAccount" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="GlacctTxt20" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Long Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Glacct" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="G/L Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityType Name="RecurringRunFrequency" sap:content-version="1">
+				<Key><PropertyRef Name="Dbmon"/></Key><Property Name="Dbmon" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Run Frequency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Run Frequency Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="RecurringRunSchedule" sap:content-version="1">
+				<Key><PropertyRef Name="Dbakz"/></Key><Property Name="Dbakz" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Run Schedule for Recurring Entries"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Text1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Run Schedule Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TaxCode" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Mwskz" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tax Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Text1" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mwart" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tax Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityType Name="ApprovalWorkCenter" sap:content-version="1">
+				<Key><PropertyRef Name="Objid"/></Key><Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Work Center"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FinsFiscalPeriod" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Budat"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Budat" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Posting Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Monat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Fiscal Period" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ReversalReason" sap:content-version="1">
+				<Key><PropertyRef Name="Stgrd"/></Key><Property Name="Stgrd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Reversal Reason"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Txt40" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Reversal Reason Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="LedgerGroup" sap:content-version="1">
+				<Key><PropertyRef Name="Ldgrp"/></Key><Property Name="Ldgrp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Explanation" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FinsRecurringDocumentHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Blart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dbbdt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="First Run" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dbedt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Run" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dbmon" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Interval (Mths)" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dbtag" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Run Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Dbakz" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Run Schedule" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wwert" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Translation Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Usnam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Xblnr" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Reference" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bktxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Doc.Header Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Kursf" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ref.exch.rate" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="KursfExt" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Exchange Rate"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ldgrp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pargb" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Trdg part.BA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Message text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Action" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Work Center"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PeriodTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="FinsRecrDocHeaderToApproverNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecrDocHeaderToApprover"
+					FromRole="FromRole_FinsRecrDocHeaderToApprover" ToRole="ToRole_FinsRecrDocHeaderToApprover"/><NavigationProperty Name="FinsRecrDocHeaderToItemNvg" Relationship="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecrDocHeaderToItem"
+					FromRole="FromRole_FinsRecrDocHeaderToItem" ToRole="ToRole_FinsRecrDocHeaderToItem"/></EntityType>
+			<EntityType Name="FinsRecurringDocumentItem" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/><PropertyRef Name="Buzei"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Line item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="G/L" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sgtxt" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrsol" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Debit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wrhab" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Credit Amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbtr" Type="Edm.Decimal" Precision="24" Scale="3" sap:unicode="false" sap:label="Amnt in CompCd Crcy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dmbe2" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="LC2 amount" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mwskz" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tax Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Txjcd" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Tax Jur." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pspnr" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Valut" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Value date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="House bank" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hktid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Account ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zounr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Assignment" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vbund" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Trading partner"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CurrencyKey" sap:content-version="1">
+				<Key><PropertyRef Name="Waers"/></Key><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:semantics="currency-code"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Long Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FinsDocumentAttachmentList" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/><PropertyRef Name="Belnr"/><PropertyRef Name="Gjahr"/><PropertyRef Name="DocId"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Document Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" MaxLength="46" sap:unicode="false"
+					sap:label="Folder Entry ID (Obj+Fol+Forwarder Name)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objdes" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Title" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Url" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<Association Name="FinsRecrDocHeaderToItem" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecurringDocumentHeader" Multiplicity="1" Role="FromRole_FinsRecrDocHeaderToItem"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecurringDocumentItem" Multiplicity="*" Role="ToRole_FinsRecrDocHeaderToItem"/></Association>
+			<Association Name="FinsRecrDocHeaderToApprover" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecurringDocumentHeader" Multiplicity="1" Role="FromRole_FinsRecrDocHeaderToApprover"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentApprover" Multiplicity="*" Role="ToRole_FinsRecrDocHeaderToApprover"/></Association>
+			<Association Name="FinsAccrualDocHeaderToItem" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocumentHeader" Multiplicity="1" Role="FromRole_FinsAccrualDocHeaderToItem"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocumentItem" Multiplicity="*" Role="ToRole_FinsAccrualDocHeaderToItem"/></Association>
+			<Association Name="FinsAccDocHeaderToApprover" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocumentHeader" Multiplicity="1" Role="FromRole_FinsAccDocHeaderToApprover"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentApprover" Multiplicity="*" Role="ToRole_FinsAccDocHeaderToApprover"/></Association>
+			<Association Name="FinsDocHeaderToApprover" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeader" Multiplicity="1" Role="FromRole_FinsDocHeaderToApprover"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentApprover" Multiplicity="*" Role="ToRole_FinsDocHeaderToApprover"/></Association>
+			<Association Name="FinsGLDocHeaderToAttachment" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeader" Multiplicity="1" Role="FromRole_FinsGLDocHeaderToAttachment"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentAttachmentList" Multiplicity="*" Role="ToRole_FinsGLDocHeaderToAttachment"/></Association>
+			<Association Name="FinsGLDocumentHeaderToItem" sap:content-version="1"><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeader" Multiplicity="1" Role="FromRole_FinsGLDocumentHeaderToItem"/><End Type="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentItem" Multiplicity="*" Role="ToRole_FinsGLDocumentHeaderToItem"/></Association>
+			<EntityContainer Name="ZFI_JOURNAL_VOUCHER_POST_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="FinsGLDocumentHeaderSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeader" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsGLDocumentItemSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentItem" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CompanyCodeSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.CompanyCode" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="JournalDocumentTypeSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.JournalDocumentType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsDocumentApproverSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentApprover" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ProfitCenterSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.ProfitCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CostCenterSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.CostCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsAccrualDocumentHeaderSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocumentHeader" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsAccrualDocumentItemSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocumentItem" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsDocumentAttachmentSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentAttachment" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="GLAccountSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.GLAccount" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="RecurringRunFrequencySet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.RecurringRunFrequency" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="RecurringRunScheduleSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.RecurringRunSchedule" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TaxCodeSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.TaxCode" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ApprovalWorkCenterSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.ApprovalWorkCenter" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsFiscalPeriodSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsFiscalPeriod" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReversalReasonSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.ReversalReason" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="LedgerGroupSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.LedgerGroup" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsRecurringDocumentHeaderSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecurringDocumentHeader" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsRecurringDocumentItemSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecurringDocumentItem" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CurrencyKeySet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.CurrencyKey" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="FinsDocumentAttachmentListSet" EntityType="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocumentAttachmentList" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="FinsGLDocumentHeaderToItemSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocumentHeaderToItem"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsGLDocumentHeaderSet" Role="FromRole_FinsGLDocumentHeaderToItem"/><End EntitySet="FinsGLDocumentItemSet" Role="ToRole_FinsGLDocumentHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="FinsDocHeaderToApproverSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsDocHeaderToApprover" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsGLDocumentHeaderSet" Role="FromRole_FinsDocHeaderToApprover"/><End EntitySet="FinsDocumentApproverSet" Role="ToRole_FinsDocHeaderToApprover"/></AssociationSet>
+				<AssociationSet Name="FinsGLDocHeaderToAttachmentSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsGLDocHeaderToAttachment"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsGLDocumentHeaderSet" Role="FromRole_FinsGLDocHeaderToAttachment"/><End EntitySet="FinsDocumentAttachmentListSet" Role="ToRole_FinsGLDocHeaderToAttachment"/></AssociationSet>
+				<AssociationSet Name="FinsAccrualDocHeaderToItemSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccrualDocHeaderToItem"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsAccrualDocumentHeaderSet" Role="FromRole_FinsAccrualDocHeaderToItem"/><End EntitySet="FinsAccrualDocumentItemSet" Role="ToRole_FinsAccrualDocHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="FinsAccDocHeaderToApproverSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsAccDocHeaderToApprover"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsAccrualDocumentHeaderSet" Role="FromRole_FinsAccDocHeaderToApprover"/><End EntitySet="FinsDocumentApproverSet" Role="ToRole_FinsAccDocHeaderToApprover"/></AssociationSet>
+				<AssociationSet Name="FinsRecurringDocHeaderToItemSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecrDocHeaderToItem"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsRecurringDocumentHeaderSet" Role="FromRole_FinsRecrDocHeaderToItem"/><End EntitySet="FinsRecurringDocumentItemSet" Role="ToRole_FinsRecrDocHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="FinsRecrDocHeaderToApproverSet" Association="ZFI_JOURNAL_VOUCHER_POST_SRV.FinsRecrDocHeaderToApprover"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="FinsRecurringDocumentHeaderSet" Role="FromRole_FinsRecrDocHeaderToApprover"/><End EntitySet="FinsDocumentApproverSet" Role="ToRole_FinsRecrDocHeaderToApprover"/></AssociationSet>
+			</EntityContainer><atom:link rel="self" href="https://sccdev.coca-cola.com:80/sap/opu/odata/sap/ZFI_JOURNAL_VOUCHER_POST_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="https://sccdev.coca-cola.com:80/sap/opu/odata/sap/ZFI_JOURNAL_VOUCHER_POST_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

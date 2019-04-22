@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog busyIndicatorDelay="{viewModel>/busyDelay}" busy="{viewModel>/dialogBusy}" noDataText="No Data" title="Select Tax Codes"
+		search="onTaxCodeDialogSearch" confirm="onTaxCodeDialogConfirm" cancel="onTaxCodeDialogCancel" items="{ path : 'viewModel>/TaxCodeSet' }">
+		<ColumnListItem>
+			<cells>
+				<Label text="{viewModel>Mwskz}"/>
+				<Label text="{viewModel>Text1}"/>
+				<Label text="{viewModel>Bukrs}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_TAX_CODE}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="true">
+				<Text text="{i18n>COL_TAX_CODE_TEXT}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_COMPANY_CODE}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

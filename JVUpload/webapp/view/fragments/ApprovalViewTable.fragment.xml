@@ -1,0 +1,292 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:Custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true">
+	<VBox width="100%">
+	<Table id="asnListTable" width="auto" mode="None" growing="true" growingScrollToLoad="false" growingThreshold="20" showSeparators="None" items="{path: 'viewModel>/HeaderData/FinsGLDocumentHeaderToItemNvg'}"
+		sticky="ColumnHeaders" noDataText="{i18n>TBL_NO_DATA_TEXT}" busyIndicatorDelay="{viewModel>/busyDelay}">
+		<headerToolbar height="20px">
+			<OverflowToolbar design="Transparent">
+				<Title text="{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'i18n>TIT_TABLE_COUNT'}, {path:'viewModel>/HeaderData/itemsCount'}], formatter:'jQuery.sap.formatMessage'}"/>
+				<ToolbarSpacer/>
+				<ToggleButton text="{viewModel>/ShowErrorItemsBtnText}" pressed="{viewModel>/toggleErrorItemsFlag}" press="onShowErrorItems"/>
+				<Button id="com.sap.colacolaCocaCola.btnExpand" icon="sap-icon://expand-group" type="Default" tooltip="{i18n>EXPAND_ALL}"
+					press="onExpandAllPressed"/>
+				<Button id="com.sap.colacolaCocaCola.btnCollapse" icon="sap-icon://collapse-group" type="Default" tooltip="{i18n>COLLAPSE_ALL}"
+					press="onCollapseAllPressed"/>
+				<!--<Button id="com.sap.colacolaCocaCola.btnFilter" icon="sap-icon://filter" type="Default" tooltip="{i18n>TABLE_FILTER}"-->
+				<!--	press="onItemsFilter"/>-->
+				<Button id="idAddBtn" icon="sap-icon://add" press="addNew"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="5%">
+				<Text text=""/>
+			</Column>
+			<!--<Column >-->
+			<!--	<Text text="{i18n>COL_COMPANY_CODE}"/>-->
+			<!--</Column>-->
+			<Column >
+				<Text text="{i18n>COL_GL_ACCOUNT}"/>
+			</Column>
+			<Column >
+				<Text text="Item Text"/>
+			</Column>
+			<Column>
+				<Text text="Posting Key"/>
+			</Column>
+			<Column>
+				<Text text="Amount"/>
+			</Column>
+			<Column>
+				<Text text="Cost Center"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>COL_PROFIT_CENTER}"/>
+			</Column>
+			<Column width="10%">
+				<Text text=""/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Top" highlight="{viewModel>highlight}">
+				<cells>
+					<HBox>
+						<Panel expandable="true" expandAnimation="true" expand="onPanelExpandCollapse" expanded="{viewModel>bExpand}" width="1450px">
+							<f:Form editable="true" width="100%">
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+										emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="3" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Tax Code">
+												<f:fields>
+													<Input placeholder="{i18n>PH_TAX_CODE}" width="10rem" valueState="{viewModel>Mwskz/valueState}" 
+														maxLength="{path: '/#FinsGLDocumentItem/Mwskz/@maxLength', formatter: 'Number'}"
+														valueStateText="{viewModel>Mwskz/valueStateText}" value="{viewModel>Mwskz/value}" 
+														valueHelpRequest="onTaxCodeHelp" showValueHelp="true" 
+														showSuggestion="true" 
+														maxSuggestionWidth="700px"
+														suggestionRows="{
+															path:'viewModel>/TaxCodeSet',
+															templateShareable:'false'
+															}" >
+														<suggestionColumns>
+															<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+																<Text text="{i18n>COL_TAX_CODE}"/>
+															</Column>
+															<Column popinDisplay="Inline" demandPopin="true">
+																<Text text="{i18n>COL_TAX_CODE_TEXT}"/>
+															</Column>
+															<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+																<Text text="{i18n>COL_COMPANY_CODE}"/>
+															</Column>
+														</suggestionColumns>
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Label text="{viewModel>Mwskz}"/>
+																	<Label text="{viewModel>Text1}"/>
+																	<Label text="{viewModel>Bukrs}"/>
+																</cells>
+															</ColumnListItem>
+														</suggestionRows>
+													</Input>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Tax Jurisdiction">
+												<f:fields>
+													<Input placeholder="{i18n>PH_TAX_JURISDICTION}" width="10rem" valueState="{viewModel>Txjcd/valueState}" maxLength="{path: '/#FinsGLDocumentItem/Txjcd/@maxLength', formatter: 'Number'}"
+														valueStateText="{viewModel>Txjcd/valueStateText}" value="{viewModel>Txjcd/value}" ></Input>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer visible="{viewModel>/isF05}">
+										<f:formElements>
+											<f:FormElement visible="{viewModel>/isF05}" label="Amount LC1">
+												<f:fields>
+													<Input placeholder="{i18n>PH_AMT_CC_CURRENCY}" width="10rem" valueState="{viewModel>Dmbtr/valueState}"
+														valueStateText="{viewModel>Dmbtr/valueStateText}" 
+														value="{path:'viewModel>Dmbtr/value'}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement visible="{viewModel>/isF05}" label="Amount LC2">
+												<f:fields>
+													<Input placeholder="{i18n>PH_LC2}" width="10rem" valueState="{viewModel>Dmbe2/valueState}"
+														valueStateText="{viewModel>Dmbe2/valueStateText}" 
+														value="{path:'viewModel>Dmbe2/value'}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Value Date">
+												<f:fields>
+													<DatePicker width="10rem" value="{path:'viewModel>Valut/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}" valueState="{viewModel>Valut/valueState}"
+														valueStateText="{viewModel>Valut/valueStateText}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="WBS Element">
+												<f:fields>
+													<Input placeholder="{i18n>PH_WBS_ELEMENT}" width="10rem" valueState="{viewModel>Pspnr/valueState}"
+														valueStateText="{viewModel>Pspnr/valueStateText}" value="{viewModel>Pspnr/value}" maxLength="{path: '/#FinsGLDocumentItem/Pspnr/@maxLength', formatter: 'Number'}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Assignment No">
+												<f:fields>
+													<Input width="10rem" placeholder="{i18n>PH_ASSIGNMENT_NO}" value="{viewModel>Zounr/value}" valueState="{viewModel>Zounr/valueState}"
+														valueStateText="{viewModel>Zounr/valueStateText}" maxLength="{path: '/#FinsGLDocumentItem/Zounr/@maxLength', formatter: 'Number'}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Order No">
+												<f:fields>
+													<Input width="10rem" placeholder="{i18n>PH_ORDER_NO}" value="{viewModel>Aufnr/value}" valueState="{viewModel>Aufnr/valueState}"
+														valueStateText="{viewModel>Aufnr/valueStateText}" maxLength="{path: '/#FinsGLDocumentItem/Aufnr/@maxLength', formatter: 'Number'}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form >
+						</Panel>
+					</HBox>
+					<Input id="ilInput15"
+						placeholder="{i18n>PH_GL_ACCOUNT}" 
+						showValueHelp="true"
+						valueState="{viewModel>Hkont/valueState}"
+						valueStateText="{viewModel>Hkont/valueStateText}"
+						value="{viewModel>Hkont/value}" 
+						valueHelpRequest="onGLAccountHelp"
+						showSuggestion="true" 
+						maxSuggestionWidth="700px"
+						maxLength="{path: '/#FinsGLDocumentItem/Hkont/@maxLength', formatter: 'Number'}"
+						suggestionRows="{
+							path:'viewModel>/GLAccountSet', 
+							templateShareable:'false',
+							sorter: { path: 'Glacct' }
+							}" >
+						<suggestionColumns>
+							<Column width="8rem" popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>COL_GL_ACCOUNT}"/>
+							</Column>
+							<Column width="8rem" popinDisplay="Inline" demandPopin="true">
+								<Text text="{i18n>COL_COMPANY_CODE}"/>
+							</Column>
+							<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+								<Text wrapping="true" text="{i18n>COL_GL_ACC_TEXT}"/>
+							</Column>
+						</suggestionColumns>
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+									<Label text="{viewModel>Glacct}"/>
+									<Label text="{viewModel>Bukrs}"/>
+									<Label text="{viewModel>GlacctTxt20}"/>
+								</cells>
+							</ColumnListItem>
+						</suggestionRows>
+					</Input>
+					<Input placeholder="{i18n>PH_ITEM_TEXT}" valueState="{viewModel>Sgtxt/valueState}" maxLength="{path: '/#FinsGLDocumentItem/Sgtxt/@maxLength', formatter: 'Number'}"
+						valueStateText="{viewModel>Sgtxt/valueStateText}" id="ilInput14" value="{viewModel>Sgtxt/value}" type="Text"/>
+					
+					<Select width="100%" change="onItemPostingKeyChange" items="{path:'viewModel>/PostingKey', templateShareable:'false'}" selectedKey="{viewModel>PstngKey}">
+						<core:Item key="{viewModel>key}" text="{viewModel>text}"/>
+					</Select>
+					
+					<VBox>
+						<Input placeholder="{i18n>PH_DEBIT}" valueState="{viewModel>Wrsol/valueState}"
+						valueStateText="{viewModel>Wrsol/valueStateText}" 
+						value="{path:'viewModel>Wrsol/value'}" type="Text" visible="{= (${viewModel>PstngKey}==='40')}"
+						id="ilInput"/>
+						
+						<Input placeholder="{i18n>PH_CREDIT}" valueState="{viewModel>Wrhab/valueState}"
+							valueStateText="{viewModel>Wrhab/valueStateText}" visible="{= (${viewModel>PstngKey}==='50')}"
+							value="{path:'viewModel>Wrhab/value'}" id="ilInput21" type="Text"/>
+					</VBox>
+						
+					<Input placeholder="{i18n>PH_COST_CENTER}" id="ilInput24" valueState="{viewModel>Kostl/valueState}"
+						valueStateText="{viewModel>Kostl/valueStateText}" 
+						maxLength="{path: '/#FinsGLDocumentItem/Kostl/@maxLength', formatter: 'Number'}"
+						value="{viewModel>Kostl/value}" showValueHelp="true" valueHelpRequest="onCostCenterHelp"
+						showSuggestion="true" 
+						maxSuggestionWidth="700px"
+						suggestionRows="{
+							path:'viewModel>/CostCenterSet',
+							templateShareable:'false'
+							}" >
+						<suggestionColumns>
+							<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>COL_COST_CENTER}"/>
+							</Column>
+							<Column popinDisplay="Inline" demandPopin="true">
+								<Text text="{i18n>COST_CENTER_TEXT}"/>
+							</Column>
+							<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+								<Text text="{i18n>COL_COMPANY_CODE}"/>
+							</Column>
+						</suggestionColumns>
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+									<Label text="{viewModel>Kostl}"/>
+									<Label text="{viewModel>Ktext}"/>
+									<Label text="{viewModel>Bukrs}"/>
+								</cells>
+							</ColumnListItem>
+						</suggestionRows>
+					</Input>
+						
+					<Input placeholder="{i18n>PH_PROFIT_CENTER}" valueState="{viewModel>Prctr/valueState}" 
+						maxLength="{path: '/#FinsGLDocumentItem/Prctr/@maxLength', formatter: 'Number'}"
+						valueStateText="{viewModel>Prctr/valueStateText}" valueHelpRequest="onProfitCenterHelp" 
+						value="{viewModel>Prctr/value}" showValueHelp="true"
+						showSuggestion="true" 
+						maxSuggestionWidth="700px"
+						suggestionRows="{
+							path:'viewModel>/ProfitCenterSet',
+							templateShareable:'false'
+							}" >
+						<suggestionColumns>
+							<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>COL_PROFIT_CENTER}"/>
+							</Column>
+							<Column popinDisplay="Inline" demandPopin="true">
+								<Text text="{i18n>COL_PROFIT_CENTER_TEXT}"/>
+							</Column>
+							<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+								<Text text="{i18n>COL_COMPANY_CODE}"/>
+							</Column>
+						</suggestionColumns>
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+									<Label text="{viewModel>Prctr}"/>
+									<Label wrapping="true" text="{viewModel>Ltext}"/>
+									<Label text="{viewModel>Bukrs}"/>
+								</cells>
+							</ColumnListItem>
+						</suggestionRows>
+					</Input>
+					
+					<HBox justifyContent="End" class="sapUiTinyMarginTop">
+						<core:Icon src="sap-icon://delete" press="onDelete"/>
+						<core:Icon src="sap-icon://copy" class="sapUiSmallMarginBegin" press="addCopy"/>
+						<core:Icon src="sap-icon://add" class="sapUiSmallMarginBegin" press="addNew"/>
+					</HBox>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<OverflowToolbar design="Transparent">
+		<ToolbarSpacer/>
+		<Title level="H5" titleStyle="H5" class="sapUiMediumMarginBeginEnd" text="{parts:[{path:'i18n>TXT_TOTAL_DEBIT'}, {path:'viewModel>/HeaderData/TotalDebit'}] , formatter:'jQuery.sap.formatMessage'}" />
+		<Title level="H5" titleStyle="H5" text="{parts:[{path:'i18n>TXT_TOTAL_CREDIT'}, {path:'viewModel>/HeaderData/TotalCredit'}] , formatter:'jQuery.sap.formatMessage'}" />
+	</OverflowToolbar>
+	</VBox>
+</core:FragmentDefinition>

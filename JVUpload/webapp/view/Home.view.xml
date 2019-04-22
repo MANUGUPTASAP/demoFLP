@@ -1,0 +1,47 @@
+<mvc:View controllerName="com.sap.colacolaCocaCola.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/busyDelay}" floatingFooter="true" showFooter="true" title="Coca-Cola" enableScrolling="false">
+		<semantic:content>
+			<FlexBox renderType="Bare" class="sapUiLargeMarginTop" alignItems="Center" justifyContent="Center">
+				<items>
+					<VBox width="70%" class="sapUiLargeMarginTop">
+						<HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+							<Title titleStyle="H2" level="H2" textAlign="Center" class="sapUiLargeMarginBottom" text="Select Request Type"/>
+						</HBox>
+						<List items="{path:'viewModel>/RequestTypes'}" noDataText="{i18n>NO_AUTH}" class="sapUiMediumMarginTop" width="100%">
+							<!--<headerToolbar>-->
+							<!--	<Toolbar design="Info">-->
+							<!--		<Title text="Select Request Type"/>-->
+							<!--	</Toolbar>-->
+							<!--</headerToolbar>-->
+							<items>
+								<!--<StandardListItem press="onItemClick" title="{viewModel>value}" iconDensityAware="false" iconInset="false" type="Navigation"/>-->
+								<CustomListItem press="onItemClick" type="Navigation">
+									<VBox height="4rem" alignItems="Start" justifyContent="Center">
+										<Title text="{viewModel>Value}" class="sapUiSmallMarginBegin" titleStyle="H4" level="H4"/>
+									</VBox>
+								</CustomListItem>
+							</items>
+						</List>
+					</VBox>
+				</items>
+			</FlexBox>
+			<!--<VBox alignItems="Center" width="100%" renderType="Bare" justifyContent="Center">-->
+			<!--	<List items="{path:'viewModel>/RequestTypes'}" inset="true" width="100%">-->
+			<!--		<headerToolbar>-->
+			<!--			<Toolbar design="Info">-->
+			<!--				<Title text="Select Request Type" />-->
+			<!--			</Toolbar>-->
+			<!--		</headerToolbar>-->
+			<!--		<items>-->
+			<!--			<StandardListItem press="onItemClick" title="{viewModel>value}" iconDensityAware="false"-->
+			<!--				iconInset="false" type="Navigation"/>-->
+			<!--		</items>-->
+			<!--	</List>-->
+			<!--</VBox>-->
+		</semantic:content>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator visible="{=${message>/}.length > 0}" press="onMessagePopoverPress"/>
+		</semantic:messagesIndicator>
+	</semantic:FullscreenPage>
+</mvc:View>

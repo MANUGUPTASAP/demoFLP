@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<title>Workflow Service Email Notification</title>
+<style>
+h3 {
+font-family: serif;
+}
+p, dl, dd, dt {
+font-family: sans-serif;
+}
+dt {
+text-indent: 5em;
+}
+</style>
+</head>
+<body>
+<h3>${context.RequestTypeText} Document Posted</h3>
+<p>Dear Requester,</p>
+<p>Your JV Request: was successfully posted to the system the details are as follows:
+<table style="width:50%">
+ 
+  <tr>
+   <td><b>Document Number</b></td>
+    <td>${context.results.Belnr}</td>
+  </tr>
+  <tr>
+   <td><b>Company Code</b></td>
+    <td>${context.results.Bukrs}</td>
+  </tr>
+    <tr>
+   <td><b>DocumentType</b></td>
+    <td>${context.results.Blart}</td>
+  </tr>
+      <tr>
+   <td><b>Fiscal Year</b></td>
+    <td>${context.results.Gjahr}</td>
+  </tr>
+
+</table>
+<p>Sincerely yours,</p>
+<p>Coca-Cola Team</p>
+<p>Please do not reply to this email.</p>
+</body>
+</html>

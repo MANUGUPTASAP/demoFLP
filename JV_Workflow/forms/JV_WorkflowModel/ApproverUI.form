@@ -1,0 +1,20 @@
+{
+    "id": "approverui",
+    "name": "ApproverUI",
+    "revision": "1.0",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "document_no",
+            "type": "string",
+            "label": "Document No",
+            "placeholder": "Document No",
+            "readOnly": false,
+            "value": "${context.DocumentNo}",
+            "constraints": {
+                "required": false
+            }
+        }
+    ],
+    "decisions": []
+}

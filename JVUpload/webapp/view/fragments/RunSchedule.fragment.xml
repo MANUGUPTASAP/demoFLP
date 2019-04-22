@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog busyIndicatorDelay="{viewModel>/busyDelay}" busy="{viewModel>/dialogBusy}" noDataText="No Data" title="Select Run Schedule"
+		search="onRunScheduleSearch" confirm="onRunScheduleConfirm" cancel="onRunScheduleCancel" items="{ path : '/RecurringRunScheduleSet' }">
+		<ColumnListItem>
+			<cells>
+				<Label text="{Dbakz}"/>
+				<Label text="{Text1}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_RUN_SCHEDULE}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="true">
+				<Text text="{i18n>COL_RUN_SCH_TEXT}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

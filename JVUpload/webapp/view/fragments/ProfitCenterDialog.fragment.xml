@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog busyIndicatorDelay="{viewModel>/busyDelay}" busy="{viewModel>/dialogBusy}" noDataText="No Data" title="Select Profit Center"
+		search="onProfitCenterDialogSearch" confirm="onProfitCenterDialogConfirm" cancel="onProfitCenterDialogCancel" items="{ path : 'viewModel>/ProfitCenterSet' }">
+		<ColumnListItem>
+			<cells>
+				<Label text="{viewModel>Prctr}"/>
+				<Label wrapping="true" text="{viewModel>Ltext}"/>
+				<Label text="{viewModel>Bukrs}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_PROFIT_CENTER}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="true">
+				<Text text="{i18n>COL_PROFIT_CENTER_TEXT}"/>
+			</Column>
+			<Column popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+				<Text text="{i18n>COL_COMPANY_CODE}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

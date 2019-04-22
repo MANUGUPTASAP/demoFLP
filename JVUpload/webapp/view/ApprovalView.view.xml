@@ -1,0 +1,55 @@
+<mvc:View controllerName="com.sap.colacolaCocaCola.controller.ApprovalView" displayBlock="true" height="100%" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:variant="sap.ui.comp.smartvariants" xmlns:uxap="sap.uxap"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:FullscreenPage showNavButton="true" navButtonPress="onBackNavigation" busy="{viewModel>/viewBusy}"
+		busyIndicatorDelay="{viewModel>/busyDelay}" floatingFooter="true" showFooter="true"
+		title="{parts: [{path:'i18n>TIT_JV_FORM'}, {path:'appModel>/selectedRequestType'}], formatter:'jQuery.sap.formatMessage'}"
+		enableScrolling="false">
+		<semantic:content>
+			<uxap:ObjectPageLayout id="idApprovalViewObjectPageLayout" upperCaseAnchorBar="false" showTitleInHeaderContent="false" alwaysShowContentHeader="true" enableLazyLoading="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader isObjectTitleAlwaysVisible="false" showMarkers="false" markFlagged="true"></uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<core:Fragment fragmentName="com.sap.colacolaCocaCola.view.fragments.ApprovalViewHeader" type="XML"/>
+				</uxap:headerContent>
+				<uxap:ObjectPageSection id="idApprovalViewItemsSection" titleUppercase="false" showTitle="true" title="Items">
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<core:Fragment fragmentName="com.sap.colacolaCocaCola.view.fragments.ApprovalViewTable" type="XML"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="idApprovalViewDocumentsSection" titleUppercase="false" showTitle="true" title="Supporting Documents">
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<!--fileType="{appModel>/fileTypes}" mimeType="{appModel>/mimeType}"-->
+							<UploadCollection id="UploadCollection" maximumFilenameLength="55" change="onFileChange" instantUpload="true" fileType="{appModel>/fileTypes}" mimeType="{appModel>/mimeType}"
+								uploadEnabled="{= !${viewModel>/getUploadEnabled}}" maximumFileSize="2" fileDeleted="onFileDeleted" uploadUrl="{viewModel>/uploadUrl}"
+								noDataDescription="Drop files or use the &quot;+&quot; button for pending upload" uploadComplete="onUploadComplete" fileSizeExceed="onFileExceeded"
+								multiple="false" beforeUploadStarts="onBeforeUploadStarts" items="{viewModel>/attachments/attachmentList}" typeMissmatch="onTypeMissmatch">
+								<items>
+									<UploadCollectionItem documentId="{viewModel>DocId}" mimeType="{viewModel>MimeType}"
+										fileName="{= ${viewModel>Filename} || ${viewModel>AttachmentName} }" visibleDelete="true" visibleEdit="false">
+									</UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:ObjectPageSection>
+			</uxap:ObjectPageLayout>
+		</semantic:content>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator id="idMessageManagerButton" visible="{=${message>/}.length > 0}" press="onMessagePopoverPress"/>
+		</semantic:messagesIndicator>
+		<semantic:customFooterContent>
+			<ToolbarSpacer/>
+			<Button text="Submit" type="Accept" press="onPost"/>
+			<Button text="Cancel" type="Reject" press="onCancel"/>
+			<Button id="importDraft" press="onUpload" icon="sap-icon://upload" tooltip="Upload Data"/>
+			<Button id="exportDraft" press="onExportDraft" icon="sap-icon://excel-attachment" tooltip="Download Unsaved Data"/>
+			<Button id="export" press="onExport" icon="sap-icon://download" tooltip="Download Standard Template"/>
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>

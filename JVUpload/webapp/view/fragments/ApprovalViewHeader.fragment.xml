@@ -1,0 +1,267 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:Custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true">
+	<f:Form editable="true" width="100%">
+		<f:layout>
+			<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+				emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false"/>
+		</f:layout>
+		<f:formContainers>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement >
+						<f:label>
+							<Label text="{i18n>LBL_COMPANY_CODE}" labelFor="idCrApprViewInpCompCode" required="true"/>
+						</f:label>
+						<f:fields>
+							<Input id="idCrApprViewInpCompCode" placeholder="{i18n>PH_COMPANY_CODE}" value="{viewModel>/HeaderData/Bukrs/value}"
+								valueHelpRequest="onCompanyCodeHelp" showValueHelp="true" valueState="{viewModel>/HeaderData/Bukrs/valueState}"
+								valueStateText="{viewModel>/HeaderData/Bukrs/valueStateText}" change="onCompanyCodeChange" showSuggestion="true" maxSuggestionWidth="700px"
+								suggestionRows="{path: '/CompanyCodeSet', templateShareable:'false'}" suggestionItemSelected="onCCCodeSuggestionSelect"
+								maxLength="{path: '/#FinsGLDocumentHeader/Bukrs/@maxLength', formatter: 'Number'}">
+								<suggestionColumns>
+									<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+										<Text text="{i18n>COL_COMPANY_CODE}"/>
+									</Column>
+									<Column hAlign="Center" popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+										<Text text="{i18n>COL_COMPANY_NAME}"/>
+									</Column>
+									<Column hAlign="Center" popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+										<Text text="{i18n>COL_CITY}"/>
+									</Column>
+									<Column hAlign="End" popinDisplay="Inline" demandPopin="true">
+										<Text text="{i18n>COL_CURR_KEY}"/>
+									</Column>
+								</suggestionColumns>
+								<suggestionRows>
+									<ColumnListItem>
+										<cells>
+											<Label text="{Bukrs}"/>
+											<Label text="{Butxt}"/>
+											<Label text="{Ort01}"/>
+											<Label text="{Waers}"/>
+										</cells>
+									</ColumnListItem>
+								</suggestionRows>
+							</Input>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement>
+						<f:label>
+							<Label text="{i18n>LBL_JOURNAL_ENTRY_TYPE}" labelFor="idCrApprViewCmbBoxJournalEntryType" required="true"/>
+						</f:label>
+						<f:fields>
+							<Select enabled="false" forceSelection="false" valueState="{viewModel>/HeaderData/Blart/valueState}"
+								valueStateText="{viewModel>/HeaderData/Blart/valueStateText}" id="idCrApprViewCmbBoxJournalEntryType"
+								selectedKey="{viewModel>/HeaderData/Blart/value}" items="{path: '/JournalDocumentTypeSet'}">
+								<core:Item key="{Blart}" text="{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'Blart'}, {path:'Ltext'}], formatter:'jQuery.sap.formatMessage'}"/>
+							</Select>
+						</f:fields>
+					</f:FormElement>
+					<!--<f:FormElement visible="{viewModel>/isFBD1}">-->
+					<!--	<f:label>-->
+					<!--		<Label text="{i18n>LBL_CURRENCY}" labelFor="idCrApprViewInputCurrency"/>-->
+					<!--	</f:label>-->
+					<!--	<f:fields>-->
+					<!--		<Input id="idCrApprViewInputCurrency" />-->
+					<!--	</f:fields>-->
+					<!--</f:FormElement>-->
+					<f:FormElement visible="{= !${viewModel>/isFBD1}}">
+						<f:label>
+							<Label text="{i18n>LBL_JOURNAL_ENTRY_DATE}" labelFor="idCrApprViewDatePickerJournalEntryDate" required="true"/>
+						</f:label>
+						<f:fields>
+							<DatePicker valueState="{viewModel>/HeaderData/Bldat/valueState}" valueStateText="{viewModel>/HeaderData/Bldat/valueStateText}"
+								value="{path: 'viewModel>/HeaderData/Bldat/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}"
+								id="idCrApprViewDatePickerJournalEntryDate"/>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBS1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>REVERSE_DATE}" labelFor="idCrApprViewDPReverseDate" required="{viewModel>/isFBS1}"/>
+						</f:label>
+						<f:fields>
+							<DatePicker valueState="{viewModel>/HeaderData/Stodt/valueState}" valueStateText="{viewModel>/HeaderData/Stodt/valueStateText}"
+								value="{path: 'viewModel>/HeaderData/Stodt/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}"
+								id="idCrApprViewDPReverseDate"/>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBD1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_FIRST_RUN}" labelFor="idCrApprViewDPFirstRunDate" required="true"/>
+						</f:label>
+						<f:fields>
+							<DatePicker valueState="{viewModel>/HeaderData/Dbbdt/valueState}" valueStateText="{viewModel>/HeaderData/Dbbdt/valueStateText}"
+								value="{path: 'viewModel>/HeaderData/Dbbdt/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}"
+								id="idCrApprViewDPFirstRunDate" placeholder=""/>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBD1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_LAST_RUN_ON}" labelFor="idCrApprViewDPLastRunDate" required="true"/>
+						</f:label>
+						<f:fields>
+							<DatePicker valueState="{viewModel>/HeaderData/Dbedt/valueState}" valueStateText="{viewModel>/HeaderData/Dbedt/valueStateText}"
+								value="{path: 'viewModel>/HeaderData/Dbedt/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}"
+								id="idCrApprViewDPLastRunDate" placeholder=""/>
+						</f:fields>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement visible="{viewModel>/isFBD1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_INTERVAL_IN_MONTH}" labelFor="idCrApprViewInputIntervalInMonth"/>
+						</f:label>
+						<f:fields>
+							<Select id="idCrApprViewInputIntervalInMonth" items="{viewModel>/RecurringRunFrequencySet}" forceSelection="false"
+								valueState="{viewModel>/HeaderData/Dbmon/valueState}" valueStateText="{viewModel>/HeaderData/Dbmon/valueStateText}"
+								selectedKey="{viewModel>/HeaderData/Dbmon/value}">
+								<core:Item key="{viewModel>Dbmon}" text="{viewModel>Ltext}"/>
+							</Select>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBD1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_RUN_DATE}" labelFor="idCrApprViewDPRunDate"/>
+						</f:label>
+						<f:fields>
+							<!--<DatePicker id="idCrApprViewDPRunDate" valueState="{viewModel>/HeaderData/Dbtag/valueState}" valueStateText="{viewModel>/HeaderData/Dbtag/valueStateText}" -->
+							<!--	value="{path: 'viewModel>/HeaderData/Dbtag/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}" placeholder=""/>-->
+							<Select id="idCrApprViewDPRunDate" items="{path:'viewModel>/RunDate'}" forceSelection="false"
+								valueState="{viewModel>/HeaderData/Dbtag/valueState}" valueStateText="{viewModel>/HeaderData/Dbtag/valueStateText}"
+								selectedKey="{viewModel>/HeaderData/Dbtag/value}">
+								<core:Item key="{viewModel>key}" text="{viewModel>text}"/>
+							</Select>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBD1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_RUN_SCHEDULE}" labelFor="idCrApprViewInputRunSchedule"/>
+						</f:label>
+						<f:fields>
+							<Input id="idCrApprViewInputRunSchedule" valueState="{viewModel>/HeaderData/Dbakz/valueState}"
+								maxLength="{path: '/#FinsRecurringDocumentHeader/Dbakz/@maxLength', formatter: 'Number'}"
+								valueStateText="{viewModel>/HeaderData/Dbakz/valueStateText}" showValueHelp="true" valueHelpRequest="onRunScheduleHelp"
+								value="{viewModel>/HeaderData/Dbakz/value}" placeholder="{i18n>PH_RUN_SCHEDULE}">
+								<!--<core:Item key="{Dbakz}" text="{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'Dbakz'}, {path:'Text1'}], formatter:'jQuery.sap.formatMessage'}"/>-->
+							</Input>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{viewModel>/isFBS1}">
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_REVERSE_REASON}" labelFor="idCrApprViewInpReverseReason" required="{viewModel>/isFBS1}"/>
+						</f:label>
+						<f:fields>
+							<Select id="idCrApprViewInpReverseReason" forceSelection="false" selectedKey="{viewModel>/HeaderData/Stgrd/value}"
+								valueState="{viewModel>/HeaderData/Stgrd/valueState}" valueStateText="{viewModel>/HeaderData/Stgrd/valueStateText}"
+								items="{/ReversalReasonSet}">
+								<items>
+									<core:Item key="{Stgrd}"
+										tooltip="{{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'Stgrd'}, {path:'Txt40'}], formatter:'jQuery.sap.formatMessage'}}"
+										text="{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'Stgrd'}, {path:'Txt40'}], formatter:'jQuery.sap.formatMessage'}"/>
+								</items>
+							</Select>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement>
+						<f:label>
+							<Label text="{i18n>LBL_WORK_CENTER}" labelFor="idCrApprViewCBWorkCenter" required="true"/>
+						</f:label>
+						<f:fields>
+							<Select id="idCrApprViewCBWorkCenter" valueState="{viewModel>/HeaderData/Objid/valueState}"
+								valueStateText="{viewModel>/HeaderData/Objid/valueStateText}" items="{path:'viewModel>/ApprovalWorkCenterSet'}" change="onWorkCenterChange"
+								selectedKey="{viewModel>/HeaderData/Objid/value}">
+								<core:Item key="{viewModel>Objid}" text="{viewModel>Stext}"/>
+							</Select>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement visible="{= !${viewModel>/isFBD1}}">
+						<f:label>
+							<Label text="{i18n>LBL_POSTING_DATE}" labelFor="idCrApprViewDatePickerPostingDate" required="true"/>
+						</f:label>
+						<f:fields>
+							<DatePicker valueState="{viewModel>/HeaderData/Budat/valueState}" change="onPostingDateChange"
+								valueStateText="{viewModel>/HeaderData/Budat/valueStateText}"
+								value="{path: 'viewModel>/HeaderData/Budat/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}"
+								id="idCrApprViewDatePickerPostingDate"/>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="{i18n>LBL_FISCAL_PERIOD}" visible="{= !${viewModel>/isFBD1}}">
+						<f:fields>
+							<Input editable="false" placeholder="{i18n>PH_FISCAL_PERIOD}" valueState="{viewModel>/HeaderData/Monat/valueState}"
+								valueStateText="{viewModel>/HeaderData/Monat/valueStateText}" value="{path:'viewModel>/HeaderData/Monat/value'}"/>
+							<!--maxLength="{path: '/#FinsGLDocumentHeader/Monat/@maxLength', formatter: 'Number'}"-->
+						</f:fields>
+					</f:FormElement>
+				</f:formElements>
+			</f:FormContainer>
+			<f:FormContainer>
+				<f:formElements>
+					<f:FormElement>
+						<f:label>
+							<Label wrapping="false" text="{i18n>LBL_TRANSACTION_CURRENCY}" labelFor="idCrApprViewInpTransactionCurr" required="true"/>
+						</f:label>
+						<f:fields>
+							<Input placeholder="{i18n>PH_TRANSLATION_CURRENCY}" valueState="{viewModel>/HeaderData/Waers/valueState}"
+								valueStateText="{viewModel>/HeaderData/Waers/valueStateText}" id="idCrApprViewInpTransactionCurr"
+								value="{viewModel>/HeaderData/Waers/value}" valueHelpRequest="onCurrencyKeyHelp" showValueHelp="true"
+								maxLength="{path: '/#FinsGLDocumentHeader/Waers/@maxLength', formatter: 'Number'}"/>
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="{i18n>LBL_LEDGER_GROUP}">
+						<f:fields>
+							<Select forceSelection="false" selectedKey="{viewModel>/HeaderData/Ldgrp/value}" valueState="{viewModel>/HeaderData/Ldgrp/valueState}"
+								valueStateText="{viewModel>/HeaderData/Ldgrp/valueStateText}" items="{viewModel>/LedgerGroupSet}">
+								<items>
+									<core:Item key="{viewModel>Ldgrp}"
+										text="{parts: [{path:'i18n>LBL_TEXT_CODE'}, {path:'viewModel>Ldgrp'}, {path:'viewModel>Name'}], formatter:'jQuery.sap.formatMessage'}"/>
+								</items>
+							</Select>
+							<!--<Input placeholder="{i18n>PH_LEDGER_GROUP}" value="{viewModel>/HeaderData/Ldgrp/value}" showValueHelp="true"/>-->
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement>
+						<f:label>
+							<Label text="{i18n>LBL_DOCU_HEADER_TEXT}" labelFor="idCrApprViewInpDocHeadText" required="true"/>
+						</f:label>
+						<f:fields>
+							<Input id="idCrApprViewInpDocHeadText" placeholder="{i18n>PH_DOCU_TEXT}" valueState="{viewModel>/HeaderData/Bktxt/valueState}"
+								valueStateText="{viewModel>/HeaderData/Bktxt/valueStateText}" value="{viewModel>/HeaderData/Bktxt/value}"
+								maxLength="{path: '/#FinsGLDocumentHeader/Bktxt/@maxLength', formatter: 'Number'}"/>
+						</f:fields>
+					</f:FormElement>
+					<!--<f:FormElement>-->
+					<!--	<f:label>-->
+					<!--		<Label wrapping="false" text="{i18n>LBL_EXCHANGE_RATE}" labelFor="idCrApprViewInpExchangeRate" required="{viewModel>/isF05}"/>-->
+					<!--	</f:label>-->
+					<!--	<f:fields>-->
+					<!--		<Input id="idCrApprViewInpExchangeRate" change="onExchangeRateChange" valueState="{viewModel>/HeaderData/Kursf/valueState}"-->
+					<!--			valueStateText="{viewModel>/HeaderData/Kursf/valueStateText}" placeholder="{i18n>PH_EXCHANGE_RATE}" -->
+					<!--			value="{path:'viewModel>/HeaderData/Kursf/value'}"/>-->
+					<!--	</f:fields>-->
+					<!--</f:FormElement>-->
+					<!--<f:FormElement>-->
+					<!--	<f:label>-->
+					<!--		<Label wrapping="false" text="{i18n>LBL_CURR_TRANSLATION_DATE}" labelFor="idCrApprViewDPCurrTranlationDate"/>-->
+					<!--	</f:label>-->
+					<!--	<f:fields>-->
+					<!--		<DatePicker valueState="{viewModel>/HeaderData/Wwert/valueState}"-->
+					<!--			valueStateText="{viewModel>/HeaderData/Wwert/valueStateText}" value="{path:'viewModel>/HeaderData/Wwert/value', type:'sap.ui.model.type.Date', formatOptions:{UTC:true, strictParsing: true, style:'short'}}" id="idCrApprViewDPCurrTranlationDate" />-->
+					<!--	</f:fields>-->
+					<!--</f:FormElement>-->
+					<!--<f:FormElement label="{i18n>LBL_REF_DOCU_NUMBER}">-->
+					<!--	<f:fields>-->
+					<!--		<Input placeholder="{i18n>PH_REF_DOCU_NUMBER}" value="{viewModel>/HeaderData/Xblnr/value}" />-->
+					<!--	</f:fields>-->
+					<!--</f:FormElement>-->
+					<!--<f:FormElement label="{i18n>LBL_PARTNER_BUSINESS_AREA}">-->
+					<!--	<f:fields>-->
+					<!--		<Input placeholder="{i18n>PH_PARTNER_BUSINESS_AREA}" value="{viewModel>/HeaderData/Pargb/value}" showValueHelp="true"/>-->
+					<!--	</f:fields>-->
+					<!--</f:FormElement>-->
+				</f:formElements>
+			</f:FormContainer>
+		</f:formContainers>
+	</f:Form >
+</core:FragmentDefinition>

@@ -1,0 +1,75 @@
+ID: JVSolution
+_schema-version: '2.1'
+description: jv app
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: JVSolution_appRouter
+    type: approuter.nodejs
+    path: JVSolution_appRouter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: JVSolution_html5_repo_runtime
+      - name: portal_resources_JVSolution
+      - name: workflowcoke
+      - name: uaa_JVSolution
+  - name: CokeFLP
+    type: com.sap.portal.content
+    path: CokeFLP
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+      buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+    requires:
+      - name: portal_resources_JVSolution
+      - name: uaa_JVSolution
+      - name: workflowcoke
+  - name: JV_Workflow
+    type: com.sap.application.content
+    path: JV_Workflow
+    requires:
+      - name: workflowcoke
+        parameters:
+          content-target: true
+  - name: JVUpload
+    type: html5
+    path: JVUpload
+    build-parameters:
+       builder: grunt
+    requires:
+      - name: dest_JVSolution
+      - name: uaa_JVSolution
+      - name: conn_JVSolution   
+
+resources:
+  - name: JVSolution_html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: portal_resources_JVSolution
+    parameters:
+      service-plan: standard
+      service: portal
+    type: org.cloudfoundry.managed-service
+  - name: workflowcoke
+    type: org.cloudfoundry.existing-service
+  - name: uaa_JVSolution
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_JVSolution
+    parameters:
+       service-plan: lite
+       service: destination
+    type: org.cloudfoundry.managed-service
+  - name: conn_JVSolution
+    parameters:
+      service-plan: lite
+      service: connectivity
+    type: org.cloudfoundry.managed-service   

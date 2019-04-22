@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout">
+	<Dialog id="uploadDialog" contentWidth="auto" title="Upload Excel" state="Success">
+		<content>
+		<u:FileUploader class="sapUiSmallMargin"
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			fileType="{viewModel>/dialogFileTypes}"
+			mimeType="{viewModel>/dialogMimeType}"
+			typeMissmatch="handleTypeMissmatch"
+			tooltip="Upload your file to the local server"
+			change="onUploadStart"
+			uploadComplete="handleUploadComplete"/>
+		</content>
+		<buttons>
+		<!--	<Button text="Ok" press="onUploadStart"/>-->
+			<Button text="Close" press="onUploadCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

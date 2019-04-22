@@ -1,0 +1,82 @@
+{
+	"_version": "2.8",
+	"identification": {
+		"id": "a1cb2fd0-cb20-40a5-836d-e544a5db07be-1554825863082",
+		"entityType": "bundle"
+	},
+	"payload": {
+		"catalogs": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "defaultCatalogId",
+				"title": "{{title}}",
+				"entityType": "catalog",
+				"i18n": "i18n/defaultCatalogId.properties"
+			},
+			"payload": {
+				"appDescriptors": []
+			}
+		}],
+		"groups": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "defaultGroupId",
+				"title": "{{title}}",
+				"entityType": "group",
+				"i18n": "i18n/defaultGroupId.properties"
+			},
+			"payload": {
+				"tiles": [{
+					"id": "com.sap.bpm.monitorworkflow-0-1554827133763",
+					"appId": "com.sap.bpm.monitorworkflow",
+					"intentHintId": "bpmworkflowmonitor-DisplayInstances"
+				}, {
+					"id": "com.sap.bpm.monitorworkflow-1-1554827133763",
+					"appId": "com.sap.bpm.monitorworkflow",
+					"intentHintId": "bpmworkflowmonitor-DisplayDefinitions"
+				}, {
+					"id": "cross.fnd.fiori.inbox-2-1554827133763",
+					"appId": "cross.fnd.fiori.inbox",
+					"intentHintId": "WorkflowTask-DisplayMyInbox"
+				}, {
+					"id": "com.sap.colacolaCocaCola-3-1555936360161",
+					"appId": "com.sap.colacolaCocaCola",
+					"intentHintId": "jvupload-display"
+				}]
+			}
+		}],
+		"sites": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "c0cdc733-e44e-400d-9936-e0e24c91a83d-1554825863082",
+				"entityType": "site",
+				"title": "SAP Fiori launchpad site on Cloud Foundry",
+				"description": "SAP Fiori launchpad site on Cloud Foundry, deployed from SAP Web IDE"
+			},
+			"payload": {
+				"config": {
+					"ushellConfig": {
+						"renderers": {
+							"fiori2": {
+								"componentData": {
+									"config": {
+										"applications": {
+											"Shell-home": {}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"groupsOrder": ["defaultGroupId"],
+				"sap.cloud.portal": {
+					"config": {
+						"theme.id": "sap_belize",
+						"theme.active": ["sap_belize", "sap_belize_plus", "sap_belize_hcb", "sap_belize_hcw"]
+					}
+				}
+			}
+		}]
+	}
+}
