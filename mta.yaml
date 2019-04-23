@@ -15,7 +15,9 @@ modules:
       - name: JVSolution_html5_repo_runtime
       - name: portal_resources_JVSolution
       - name: workflowcoke
+      - name: dest_JVSolution
       - name: uaa_JVSolution
+      - name: conn_JVSolution
   - name: CokeFLP
     type: com.sap.portal.content
     path: CokeFLP
@@ -27,6 +29,7 @@ modules:
       - name: portal_resources_JVSolution
       - name: uaa_JVSolution
       - name: workflowcoke
+      - name: JVSolution_html5_repo_host
   - name: JV_Workflow
     type: com.sap.application.content
     path: JV_Workflow
@@ -39,10 +42,6 @@ modules:
     path: JVUpload
     build-parameters:
        builder: grunt
-    requires:
-      - name: dest_JVSolution
-      - name: uaa_JVSolution
-      - name: conn_JVSolution   
 
 resources:
   - name: JVSolution_html5_repo_runtime
@@ -50,6 +49,11 @@ resources:
       service-plan: app-runtime
       service: html5-apps-repo
     type: org.cloudfoundry.managed-service
+  - name: JVSolution_html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service  
   - name: portal_resources_JVSolution
     parameters:
       service-plan: standard
